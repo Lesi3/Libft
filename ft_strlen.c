@@ -6,7 +6,7 @@
 /*   By: ivillold <ivillold@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/07 21:49:44 by ivillold          #+#    #+#             */
-/*   Updated: 2024/10/07 21:56:04 by ivillold         ###   ########.fr       */
+/*   Updated: 2024/10/27 15:00:43 by ivillold         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,3 +21,8 @@ size_t	ft_strlen(const char *str)
 		len++;
 	return (len);
 }
+
+/*int	main(){
+	char *x="Hola";
+	printf(":%d:",ft_strlen(x));
+}*/

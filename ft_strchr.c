@@ -3,24 +3,22 @@
 /*                                                        :::      ::::::::   */
 /*   ft_strchr.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ivillold <ivillold@student.42madrid.com    +#+  +:+       +#+        */
+/*   By: ivillold <ivillold@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/11 18:07:42 by ivillold          #+#    #+#             */
-/*   Updated: 2024/10/11 18:07:42 by ivillold         ###   ########.fr       */
+/*   Updated: 2024/10/28 19:31:31 by ivillold         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft"
+#include "libft.h"
 
 char	*ft_strchr(const char *src, int c)
 {
-	if (c == '\0')
-		return ((char *)src);
-	while (*src)
+	while ((char)c != *src)
 	{
-		if (*src == c)
-			return ((char *)src);
+		if (!*src)
+			return (0);
 		src++;
 	}
-	return (NULL);
+	return ((char *)src);
 }

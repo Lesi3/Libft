@@ -3,48 +3,37 @@
 /*                                                        :::      ::::::::   */
 /*   ft_strnstr.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ivillold <ivillold@student.42madrid.com    +#+  +:+       +#+        */
+/*   By: ivillold <ivillold@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/18 21:12:25 by ivillold          #+#    #+#             */
-/*   Updated: 2024/10/18 21:12:25 by ivillold         ###   ########.fr       */
+/*   Updated: 2024/10/28 19:53:43 by ivillold         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-char	*ft_toFindOut(char *str, char *to_find, size_t i, size_t n)
-{
-	size_t	j;
-
-	j = 0;
-	while (to_find[j] != '\0' && n > i + j)
-	{
-		if (to_find[j] != str[i + j])
-			return (NULL);
-		j++;
-	}
-	return (str + i);
-}
-
-char	*ft_strnstr(const char *s1, const char *s2, size_t n)
+char	*ft_strnstr(const char *str, const char *to_find, size_t len)
 {
 	size_t	i;
-	char	*find;
+	size_t	j;
 
 	i = 0;
-	if (s1[i] == '\0')
-        return (char *)s1;
-	if (ft_strlen(s2) > n)
-		return (NULL);
-	while (i < n && s1[i] != '\0')
+	if (!str && !len)
+		return (0);
+	if (to_find[0] == '\0' || to_find == str)
+		return ((char *)str);
+	while (str[i] != '\0')
 	{
-		if (s1[i] == s2[0])
+		j = 0;
+		while (str[i + j] == to_find[j] && (i + j) < len)
 		{
-			find = ft_toFindOut((char *)s1, (char *)s2, i, n);
-			if (find != NULL)
-				return (find);
+			if (str[i + j] == '\0' && to_find[j] == '\0')
+				return ((char *)&str[i]);
+			j++;
 		}
+		if (to_find[j] == '\0')
+			return ((char *)(str + i));
 		i++;
 	}
-	return (NULL);
+	return (0);
 }

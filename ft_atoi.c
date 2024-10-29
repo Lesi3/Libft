@@ -3,16 +3,17 @@
 /*                                                        :::      ::::::::   */
 /*   ft_atoi.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ivillold <ivillold@student.42madrid.com    +#+  +:+       +#+        */
+/*   By: ivillold <ivillold@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/21 20:23:10 by ivillold          #+#    #+#             */
-/*   Updated: 2024/10/21 20:23:10 by ivillold         ###   ########.fr       */
+/*   Updated: 2024/10/28 22:04:21 by ivillold         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-int	ft_sign(char *str, int *ptr_i)
+// Convierte una cadena de caracteres en un número entero.
+static int	ft_sign(const char *str, int *ptr_i)
 {
 	int	count;
 	int	i;
@@ -31,7 +32,7 @@ int	ft_sign(char *str, int *ptr_i)
 	return (count);
 }
 
-int	ft_atoi(char *str)
+int	ft_atoi(const char *str)
 {
 	int	sign;
 	int	i;
